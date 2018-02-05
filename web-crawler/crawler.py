@@ -54,3 +54,14 @@ while continue_crawl(article_chain, target_url):
 
     # wait some time
     time.sleep(2)
+
+
+example = {
+    'banana': {
+        'orange': {
+            'pear': {
+                'smoothie': 1
+            }
+        }
+    }
+}
