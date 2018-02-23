@@ -65,3 +65,26 @@ JOIN region r
 	ON sr.region_id = r.id
 GROUP BY we.channel, r.name
 ORDER BY number_of_occurances DESC
+
+/* Use DISTINCT to test if there are accounts w/ multiple regions */
+
+SELECT a.id, COUNT(*) region_count
+FROM accounts a
+JOIN sales_reps sr
+	ON sr.id = a.sales_rep_id
+JOIN region r
+	ON sr.region_id = r.id
+GROUP BY a.id
+ORDER BY region_count DESC;
+
+SELECT DISTINCT a.id, a.name
+FROM accounts a;
+
+/* find all sales_reps account counts */
+
+SELECT sr.name, COUNT(*) account_count
+FROM sales_reps sr
+JOIN accounts a
+	ON sr.id = a.sales_rep_id
+GROUP BY sr.name
+ORDER BY account_count DESC
